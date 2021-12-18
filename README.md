@@ -1,1 +1,1 @@
-Furkan aldjdqajodaz
+Furkan
