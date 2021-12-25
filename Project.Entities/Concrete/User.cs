@@ -19,5 +19,14 @@ namespace Project.Entities.Concrete
         public string Photo { get; set; }
 
         public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<Comment> Comments   { get; set; }
+        public ICollection<UserReport> UserReports   { get; set; }
+        public ICollection<CommentVote> CommentVotes   { get; set; }
+        public ICollection<CommentReport> CommentReports   { get; set; }
+        public ICollection<Blacklist> Blacklists   { get; set; }
+        public ICollection<Subject> Subjects   { get; set; }
+
+
+         
     }
 }
