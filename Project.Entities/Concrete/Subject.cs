@@ -10,7 +10,7 @@ namespace Project.Entities.Concrete
     {
         public string SubjectTitle { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Comment> Comment { get; set; }
             
     }
 

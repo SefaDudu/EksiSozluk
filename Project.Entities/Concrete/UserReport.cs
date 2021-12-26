@@ -8,9 +8,14 @@ namespace Project.Entities.Concrete
 {
     public class UserReport: BaseEntity, IEntity
     {
+        //Reportlanan User
         public Guid ReportedUserId { get; set; }
-        public Guid UserId { get; set; }
-        public string Comment { get; set; }
+
+        //Reportlayan User
         public User User { get; set; }
+        public Guid UserId { get; set; }
+
+        public string Comment { get; set; }
+
     }
 }

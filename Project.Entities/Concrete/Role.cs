@@ -11,6 +11,6 @@ namespace Project.Entities.Concrete
     {
         public string Name { get; set; }
 
-        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<UserRole> UserRole { get; set; }
     }
 }

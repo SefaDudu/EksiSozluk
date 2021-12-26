@@ -18,13 +18,13 @@ namespace Project.Entities.Concrete
         public string Password { get; set; }
         public string Photo { get; set; }
 
-        public ICollection<UserRole> UserRoles { get; set; }
-        public ICollection<Comment> Comments   { get; set; }
-        public ICollection<UserReport> UserReports   { get; set; }
-        public ICollection<CommentVote> CommentVotes   { get; set; }
-        public ICollection<CommentReport> CommentReports   { get; set; }
-        public ICollection<Blacklist> Blacklists   { get; set; }
-        public ICollection<Subject> Subjects   { get; set; }
+        public ICollection<UserRole> UserRole { get; set; }
+        public ICollection<Comment> Comment   { get; set; }
+        public ICollection<UserReport> UserReport   { get; set; }
+        public ICollection<CommentVote> CommentVote   { get; set; }
+        public ICollection<CommentReport> CommentReport   { get; set; }
+        public ICollection<Blacklist> Blacklist   { get; set; }
+        public ICollection<Subject> Subject  { get; set; }
 
 
          
