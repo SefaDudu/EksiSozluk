@@ -7,10 +7,10 @@ using System.Text;
 
 namespace Project.Entities.Domain
 {
-   public class ProjectContext:DbContext
+   public abstract class ProjectContext:DbContext
     {
-
-        public ProjectContext(DbContextOptions<ProjectContext> options):base(options)
+   
+        public  ProjectContext(DbContextOptions<ProjectContext> options):base(options)
         {
 
         }
