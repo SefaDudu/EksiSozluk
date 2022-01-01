@@ -7,11 +7,18 @@ using System.Text;
 
 namespace Project.Entities.Domain
 {
-   public abstract class ProjectContext:DbContext
+   public class ProjectContext: DbContext
     {
-        public ProjectContext(DbContextOptions<ProjectContext> options) : base(options) { }
+        public ProjectContext()
+        {
 
-        
+        }
+        public ProjectContext(DbContextOptions<ProjectContext> options) : base(options)
+        {
+
+        }
+
+     
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
