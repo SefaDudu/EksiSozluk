@@ -23,10 +23,10 @@ namespace API.Controllers
             return View();
         }
 
-        
+        [Route("/api/sefa")]
         public IActionResult Privacy()
         {
-            return View();
+            return Ok("barış");
         }
 
 
@@ -37,5 +37,9 @@ namespace API.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+
+
     }
 }

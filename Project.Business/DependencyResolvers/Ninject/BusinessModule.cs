@@ -13,6 +13,8 @@ namespace Project.Business.DependencyResolvers.Ninject
 
             Bind<IUserService>().To<UserManager>();
             Bind<IUserDal>().To<EfUserDal>();
+            Bind<IBlacklistService>().To<BlacklistManager>();
+            Bind<IBlacklistDal>().To<EfBlacklistDal>();
         }
     }
 }
