@@ -15,6 +15,20 @@ namespace Project.Business.DependencyResolvers.Ninject
             Bind<IUserDal>().To<EfUserDal>();
             Bind<IBlacklistService>().To<BlacklistManager>();
             Bind<IBlacklistDal>().To<EfBlacklistDal>();
+            Bind<ICommentReportService>().To<ICommentReportManager>();
+            Bind<ICommentReportDal>().To<EfCommentReportDal>();
+            Bind<ICommentService>().To<CommentManager>();
+            Bind<ICommentDal>().To<EfCommentDal>();
+            Bind<ICommentVoteService>().To<CommentVoteManager>();
+            Bind<ICommentVoteDal>().To<EfCommentVoteDal>();
+
+            Bind<ISubjectService>().To<SubjectManager>();
+            Bind<ISubjectDal>().To<EfSubjectDal>();
+            Bind<IUserReportService>().To<UserReportManager>();
+            Bind<IUserReportDal>().To<EfUserReportDal>();
+
+            Bind<IRoleService>().To<RoleManager>();
+            Bind<IRoleDal>().To<EfRoleDal>();
         }
     }
 }
