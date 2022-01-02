@@ -29,6 +29,9 @@ namespace Project.Business.DependencyResolvers.Ninject
 
             Bind<IRoleService>().To<RoleManager>();
             Bind<IRoleDal>().To<EfRoleDal>();
+
+            Bind<IUserRoleService>().To<UserRoleManager>();
+            Bind<IUserRoleDal>().To<EfUserRoleDal>();
         }
     }
 }
