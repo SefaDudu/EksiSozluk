@@ -29,15 +29,8 @@
     border-bottom:5px solid rgb(10, 219, 3);;  
   }
   */
-*{background-color:white;}
-  .border{
-    background-color: #81c14b;
-    width: 100%;
-    height: 5px;
-    margin-top:-1px;      /*fix this side...! */
-    margin-bottom:10px;
-    
-  }
+*{ margin:0;padding: 0;}
+.bordercontainer1{border-top:4px solid #81c14b;}
   .logosearchbutt{
     display: flex;
     justify-content: space-between;
@@ -50,7 +43,7 @@
     text-decoration: none;
     margin-left:15px;
   }
-  .loginregister a:hover{text-decoration: underline;}
+  .loginregister a:hover{text-decoration: 1px underline;}
   #logo{
     width: 100%;
     display: inline-block;
@@ -90,12 +83,16 @@ form.searchb::after {
 
 
 
-
+#nav ul {
+  margin-bottom:4px;
+}
 #nav ul li {
 
     display: inline-block;
+    height: 35px;
     
 }
+
   #nav ul li a {
     text-decoration: none;
     display: block;
@@ -104,6 +101,7 @@ form.searchb::after {
     text-align: center;
     margin-left:15px;
 }
+
 #nav ul li a:focus {
   color: #81c14b;
   border-bottom:5px solid #81c14b;
@@ -118,3 +116,66 @@ form.searchb::after {
   font-weight: bold;
 }
 
+/*navbar-container border*/
+.bordercontainer{border-bottom:0.5px solid black;}
+
+/*container*/
+
+.Containerr{
+  margin:10px 10% 0 10%;
+  width: 80%;
+  height: 500px;
+}
+.sidebar{
+  padding:0;
+  width: 20%;
+  float:left;
+  height: 100%;
+
+}
+.contents{
+  width: 78%;
+  float:right;
+  height: 100%;
+  background-color: red;
+
+}
+.baslik span{
+  font-size:1.5em;
+  color:grey;
+  margin:10px;
+}
+.baslik img{cursor:pointer;}
+
+.baslikicerik ul{
+   margin:0 10px;
+  padding: 0;
+  
+  display: inline-block;
+  list-style-type: none;
+}
+
+.baslikicerik ul li a {
+  text-decoration: none;
+  color:black;
+  display: block;
+  word-wrap: break-word;
+  width: 85%;
+}
+
+.baslikicerik small {
+  font-size:12px;
+  position: absolute; 
+  width: 15%;
+  right:0;
+  top:15px; 
+  
+}
+.baslikicerik ul li{
+  padding:10px 10px 10px 5px;
+  position: relative;
+}
+.baslikicerik ul li:hover{
+  background-color: rgba(216, 210, 210, 0.979);
+  cursor:pointer;
+}
