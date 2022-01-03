@@ -12,5 +12,7 @@ namespace Project.Business.Abstract
         void add(User entity);
         void delete(User entity);
         void update(User entity);
+        List<Role> GetClaims(User user);
+        User GetByMail(string email);
     }
 }

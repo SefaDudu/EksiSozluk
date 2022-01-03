@@ -31,6 +31,16 @@ namespace Project.Business.Concrete
             return rest;
         }
 
+        public User GetByMail(string email)
+        {
+            return userDal.Get(u => u.Email == email);
+        }
+
+        public List<Role> GetClaims(User user)
+        {
+            return  userDal.GetClaims(user);
+        }
+
         public List<User> GetList()
         {
             return userDal.GetAll();
