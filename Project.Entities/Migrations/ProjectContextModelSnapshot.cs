@@ -145,18 +145,16 @@ namespace Project.Entities.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
                     b.Property<string>("SubjectTitle")
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Subjects");
                 });
@@ -322,13 +320,6 @@ namespace Project.Entities.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Project.Entities.Concrete.Subject", b =>
-                {
-                    b.HasOne("Project.Entities.Concrete.User", null)
-                        .WithMany("Subject")
-                        .HasForeignKey("UserId");
-                });
-
             modelBuilder.Entity("Project.Entities.Concrete.UserReport", b =>
                 {
                     b.HasOne("Project.Entities.Concrete.User", "User")
@@ -385,8 +376,6 @@ namespace Project.Entities.Migrations
                     b.Navigation("CommentReport");
 
                     b.Navigation("CommentVote");
-
-                    b.Navigation("Subject");
 
                     b.Navigation("UserReport");
 

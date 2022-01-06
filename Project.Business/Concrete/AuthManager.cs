@@ -1,5 +1,6 @@
 ﻿using Project.Business.Abstract;
 using Project.Business.Constants;
+using Project.Business.DependencyResolvers.Ninject;
 using Project.Core.Utilities.Results;
 using Project.Core.Utilities.Security.Hashing;
 using Project.Core.Utilities.Security.JWT;
@@ -17,10 +18,10 @@ namespace Project.Business.Concrete
         private IUserService _userService;
         private ITokenHelper _tokenHelper;
 
-        public AuthManager(IUserService userService, ITokenHelper tokenHelper)
+        public AuthManager()
         {
-            _userService = userService;
-            _tokenHelper = tokenHelper;
+            _userService = InstanceFactory.GetInstance<IUserService>();
+            _tokenHelper = InstanceFactory.GetInstance<ITokenHelper>();
         }
 
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)

@@ -1,4 +1,5 @@
 ﻿using Project.Business.Abstract;
+using Project.Business.BusinessAspects.Autofac;
 using Project.Business.DependencyResolvers.Ninject;
 using Project.DataAccess.Abstract;
 using Project.Entities.Concrete;
@@ -15,11 +16,12 @@ namespace Project.Business.Concrete
         {
             userDal = InstanceFactory.GetInstance<IUserDal>();
         }
+        
         public void add(User entity)
         {
             userDal.Add(entity);
         }
-
+        [SecuredOperation("Admin")]
         public void delete(User entity)
         {
             userDal.Delete(entity);

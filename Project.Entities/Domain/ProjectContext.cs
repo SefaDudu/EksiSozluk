@@ -13,12 +13,12 @@ namespace Project.Entities.Domain
         {
 
         }
-        public ProjectContext(DbContextOptions<ProjectContext> options) : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            optionsBuilder.UseNpgsql(@"User ID=postgres;Password=root;Host=127.0.0.1;Port=5432;Database=ProjectDb;Pooling=true;");
         }
 
-     
+
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }

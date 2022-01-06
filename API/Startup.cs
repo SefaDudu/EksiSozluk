@@ -17,7 +17,6 @@ using Microsoft.IdentityModel.Tokens;
 using Project.Core.Utilities.Security.Encryption;
 using Project.Core.Extensions;
 using Project.Core.Utilities.IoC;
-using Project.Core.DependencyResolvers;
 using Project.Business.Abstract;
 using Project.Business.Concrete;
 
@@ -36,9 +35,10 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<ProjectContext>(options =>
-         options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+         //   services.AddDbContext<ProjectContext>(options =>
+         //options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
+            services.AddControllers();
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -55,12 +55,10 @@ namespace API
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
-                });
-            services.AddDependencyResolvers(new ICoreModule[]
-            {
-                new CoreModule()
-            });
+                    ServiceTool.Create(services);
 
+                });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

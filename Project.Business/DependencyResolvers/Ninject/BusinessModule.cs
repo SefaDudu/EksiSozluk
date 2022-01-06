@@ -1,6 +1,7 @@
 ﻿using Ninject.Modules;
 using Project.Business.Abstract;
 using Project.Business.Concrete;
+using Project.Core.Utilities.Security.JWT;
 using Project.DataAccess.Abstract;
 using Project.DataAccess.Concrete.EntityFramework;
 
@@ -32,6 +33,16 @@ namespace Project.Business.DependencyResolvers.Ninject
 
             Bind<IUserRoleService>().To<UserRoleManager>();
             Bind<IUserRoleDal>().To<EfUserRoleDal>();
+
+            Bind<IAuthService>().To<AuthManager>();
+            //Bind<IConfigiration>().To<JwtHelper>();
+            Bind<ITokenHelper>().To<JwtHelper>();
+
+            //
+
+
+
+
         }
     }
 }

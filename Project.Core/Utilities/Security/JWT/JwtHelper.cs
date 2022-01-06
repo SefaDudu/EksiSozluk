@@ -6,9 +6,11 @@ using Project.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+
 
 namespace Project.Core.Utilities.Security.JWT
 {
@@ -17,11 +19,23 @@ namespace Project.Core.Utilities.Security.JWT
         public IConfiguration Configuration { get; }
         private TokenOptions _tokenOptions;
         private DateTime _accessTokenExpiration;
-        public JwtHelper(IConfiguration configuration)
+        public JwtHelper()
         {
-            Configuration = configuration;
-            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            //Configuration = configuration;
+            //_tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
+            _tokenOptions = new TokenOptions()
+            {
+                AccessTokenExpiration = 10,
+                Audience = "eksisozluk@eksisozluk.com",
+                Issuer = "eksisozluk@eksisozluk.com",
+                SecurityKey = "supersecretkeysuperkeysecretmykeysecret"
+            };
+
+            //    var builder = new ConfigurationBuilder()
+            //.SetBasePath(Directory.GetCurrentDirectory())
+            //.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            //    Configuration = builder.Build();
         }
         public AccessToken CreateToken(User user, List<Role> role)
         {

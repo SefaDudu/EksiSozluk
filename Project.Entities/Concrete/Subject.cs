@@ -9,7 +9,7 @@ namespace Project.Entities.Concrete
     public class Subject: BaseEntity, IEntity
     {
         public string SubjectTitle { get; set; }
-
+        public DateTime CreatedDate { get; set; }
         public ICollection<Comment> Comment { get; set; }
             
     }

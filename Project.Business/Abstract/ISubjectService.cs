@@ -12,5 +12,6 @@ namespace Project.Business.Abstract
         void add(Subject entity);
         void delete(Subject entity);
         void update(Subject entity);
+        List<Subject> Top10();
     }
 }

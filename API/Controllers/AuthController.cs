@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Project.Business.Abstract;
+using Project.Business.DependencyResolvers.Ninject;
 using Project.Entities.Dtos;
 using System;
 using System.Collections.Generic;
@@ -8,19 +9,21 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+
     [ApiController]
     public class AuthController : Controller
     {
         private IAuthService _authService;
 
-        public AuthController(IAuthService authService)
+        public AuthController()
         {
-            _authService = authService;
+            _authService = InstanceFactory.GetInstance<IAuthService>();
         }
 
-        [HttpPost("login")]
-        public ActionResult Login(UserForLoginDto userForLoginDto)
+
+
+        [HttpPost("/api/login")]
+        public ActionResult Login([FromBody] UserForLoginDto userForLoginDto)
         {
             var userToLogin = _authService.Login(userForLoginDto);
             if (!userToLogin.Success)
@@ -36,9 +39,9 @@ namespace API.Controllers
 
             return BadRequest(result.Message);
         }
-
-        [HttpPost("register")]
-        public ActionResult Register(UserForRegisterDto userForRegisterDto)
+        [Route("/api/register")]
+        [HttpPost]
+        public ActionResult Register( [FromBody]UserForRegisterDto userForRegisterDto)
         {
             var userExists = _authService.UserExists(userForRegisterDto.Email);
             if (!userExists.Success)

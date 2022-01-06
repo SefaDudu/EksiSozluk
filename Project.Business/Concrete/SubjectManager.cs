@@ -36,6 +36,11 @@ namespace Project.Business.Concrete
             return SubjectDal.GetAll();
         }
 
+        public List<Subject> Top10()
+        {
+            return SubjectDal.Top10Subject();
+        }
+
         public void update(Subject entity)
         {
             SubjectDal.Update(entity);

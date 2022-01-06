@@ -26,7 +26,7 @@ namespace Project.Entities.Concrete
         public ICollection<CommentVote> CommentVote   { get; set; }
         public ICollection<CommentReport> CommentReport   { get; set; }
         public ICollection<Blacklist> Blacklist   { get; set; }
-        public ICollection<Subject> Subject  { get; set; }
+ 
 
 
          
