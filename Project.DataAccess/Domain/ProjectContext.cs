@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project.Entities.Domain
+namespace Project.DataAccess.Domain
 {
    public class ProjectContext: DbContext
     {

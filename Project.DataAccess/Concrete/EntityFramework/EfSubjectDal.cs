@@ -1,7 +1,7 @@
 ﻿using Project.Core.DataAccess.EntityFramework;
 using Project.DataAccess.Abstract;
 using Project.Entities.Concrete;
-using Project.Entities.Domain;
+using Project.DataAccess.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +19,7 @@ namespace Project.DataAccess.Concrete.EntityFramework
                 return filter == null
                     ? context.Set<Subject>().Take(10).ToList()
                     : context.Set<Subject>().Where(filter).ToList();
+             
             }
         }
     }

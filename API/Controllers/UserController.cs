@@ -15,10 +15,12 @@ namespace API.Controllers
 
 
         private ISubjectService subjectService;
+        private ICommentService commentService;
 
         public UserController()
         {
             subjectService = InstanceFactory.GetInstance<ISubjectService>();
+            commentService = InstanceFactory.GetInstance<ICommentService>();
         }
         public IActionResult Index()
         {
@@ -31,5 +33,15 @@ namespace API.Controllers
             var Top10Title = subjectService.Top10();   
             return Ok(Top10Title);
         }
+
+        //maintop10
+        [HttpGet("Top10Main")]
+        public IActionResult Top10Main()
+        {
+            var Top10Main = commentService.MainComment();
+            return Ok(Top10Main);
+        }
+
+
     }
 }

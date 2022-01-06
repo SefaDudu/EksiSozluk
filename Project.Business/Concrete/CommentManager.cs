@@ -2,6 +2,7 @@
 using Project.Business.DependencyResolvers.Ninject;
 using Project.DataAccess.Abstract;
 using Project.Entities.Concrete;
+using Project.Entities.VmModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -35,6 +36,11 @@ namespace Project.Business.Concrete
         {
 
             return CommentDal.GetAll();
+        }
+
+        public List<MainComment> MainComment()
+        {
+            return CommentDal.MainComment();
         }
 
         public void update(Comment entity)
