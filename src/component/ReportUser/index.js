@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './report.css'
+import './reportuser.css'
 import Navbar from '../navbar/index'
 export default class Report extends Component {
     render() {
@@ -7,12 +7,11 @@ export default class Report extends Component {
             <>
                 <Navbar />
                 <div className='contentss'>
-                    <div className="konucontainer">
-                        <h3 className='konubaslik'>bir insanın bütün aşklarının platonik kalması</h3>
-                        <p className='konuicerigi'>hayata çaylak kalmak, sevgililerin yanındaki üçüncü kişi olmak sevgilisi olanları kıskanmak, ilişki nasıl bir şeydir merak etmek ve de en önemlisi gerçekten yalnız olmak gibi sonuçları vardır.</p>
-                        <div className='row'>
-                        <h5 style={{"marginRight":50,"marginLeft":270}}>21.03.2008  17:59</h5>
+                    <div className='row'>
+                        <img src={"user.png"} id='userimage' />
+                        <div className='column'>
                         <h4>Sefa Dudu</h4>
+                        <h7>@sefaccc</h7>
                         </div>
                     </div>
                     <form id="survey-form">

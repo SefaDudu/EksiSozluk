@@ -1,0 +1,50 @@
+.contentss{
+  width: 70%;
+  float:right;
+  height: 500px;
+  border-left:1px solid black;
+  margin-right: 40px;
+}
+.konubaslik{
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.konuicerigi{
+  width: 70%;
+}
+.konucontainer{
+  margin-left: 20%;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30%;
+  position: relative;
+}
+
+.input-field {
+  margin-left: 1em;
+  padding: .5em;
+  margin-bottom: .5em;
+}
+.row label{
+  width:20%;
+  text-align: right;
+}
+.row textarea{
+  margin-left: 1em;
+  padding: .5em;
+  margin-bottom: .5em;
+  width: 275px;
+  height: 130px;
+  resize: none;
+}
+.sikayetbutton{
+  width: 20%;
+  height: 35px;
+  margin-left: 20%;
+  background-color: red;
+}
