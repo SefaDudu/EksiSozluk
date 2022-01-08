@@ -88,7 +88,7 @@ namespace API.Controllers
 
         //Yorum yap
         //SubjectId ,UserId ve Comment gönderilecek
-        [HttpPost("AddSubject")]
+        [HttpPost("AddComment")]
         public IActionResult AddSubject([FromBody] Comment comment)
         {
             comment.Id = Guid.NewGuid();

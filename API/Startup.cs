@@ -28,7 +28,8 @@ namespace API
         {
             Configuration = configuration;
         }
-
+        readonly string ApiCorsPolicy = "_apiCorsPolicy";
+          
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -39,6 +40,12 @@ namespace API
          //options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddControllers();
+            services.AddCors(options => options.AddPolicy(ApiCorsPolicy, builder => {
+                builder.WithOrigins("http://localhost:44572").AllowAnyOrigin();
+//.AllowAnyMethod()
+//.AllowAnyHeader()
+//.AllowCredentials();
+            }));
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -82,6 +89,7 @@ namespace API
             app.UseAuthentication();
 
             app.UseAuthorization();
+            app.UseCors(ApiCorsPolicy);
 
             app.UseEndpoints(endpoints =>
             {
