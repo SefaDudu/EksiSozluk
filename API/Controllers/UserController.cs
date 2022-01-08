@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Project.Business.Abstract;
 using Project.Business.BusinessAspects.Autofac;
 using Project.Business.DependencyResolvers.Ninject;
@@ -114,6 +115,7 @@ namespace API.Controllers
             return Ok(true);
         }
         //Giriş Yapan kişi için engellenen kişilerin yorumlarının gösterilmemesi
+        [Authorize(Roles = "Admin")]
         [HttpGet("GetComment")]
         public IActionResult GetComment()
         {
