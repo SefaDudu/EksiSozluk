@@ -1,0 +1,51 @@
+.admin{display: flex;}
+.adminsidebar{
+    width: 20%;
+    float:left;
+
+}
+#logopanel{
+    width: 50%;
+    margin:10px 0 20px 70px;
+}
+.panellist{
+    align-items: center;
+}
+.panellist li a{
+    text-decoration: none;
+    color:black;    
+    display: block;
+    word-wrap: break-word;
+}
+
+.panellist li{
+    padding:20px 0 20px 0px;
+    text-align: center;
+    list-style: none;
+
+  }
+  .panellist li:hover{
+    background-color: rgba(223, 245, 230, 0.979);
+    cursor:pointer;
+    padding:20px 0 20px 0px;
+
+    border-left:5px solid #81c14b;
+    border-right:5px solid #81c14b;
+  }
+#adminuserlogo{
+    width: 30px;
+}
+
+#Admintopright{
+    float:right;
+    margin-right:50px;
+    margin-top:5px;
+    
+}
+.AdminTopside{
+    float:right;
+
+    width: 80%;
+    height: 50px;
+    background-color: rgba(223, 245, 230, 0.979);
+}
