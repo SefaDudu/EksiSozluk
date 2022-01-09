@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Project.Business.Abstract;
 using Project.Business.DependencyResolvers.Ninject;
 using Project.Entities.Dtos;
@@ -41,6 +42,7 @@ namespace API.Controllers
         }
         [Route("/api/register")]
         [HttpPost]
+       
         public ActionResult Register( [FromBody]UserForRegisterDto userForRegisterDto)
         {
             var userExists = _authService.UserExists(userForRegisterDto.Email);

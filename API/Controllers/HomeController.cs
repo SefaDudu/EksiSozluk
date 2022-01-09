@@ -25,12 +25,7 @@ namespace API.Controllers
             return View();
         }
 
-        [Route("/api/sefa")]
-        public IActionResult Privacy()
-        {
-
-            return Ok("barış");
-        }
+        
 
 
 

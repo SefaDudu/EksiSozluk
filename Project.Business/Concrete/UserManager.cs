@@ -33,9 +33,9 @@ namespace Project.Business.Concrete
             return rest;
         }
 
-        public User GetByMail(string email)
+        public User GetByUsername(string username)
         {
-            return userDal.Get(u => u.Email == email);
+            return userDal.Get(u => u.UserName == username);
         }
 
         public List<Role> GetClaims(User user)

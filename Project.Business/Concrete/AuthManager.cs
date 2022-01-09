@@ -32,7 +32,7 @@ namespace Project.Business.Concrete
             {
                 Email = userForRegisterDto.Email,
                 UserName = userForRegisterDto.UserName,
-                BirthDate = userForRegisterDto.BirthDay,
+                BirthDate = userForRegisterDto.BirthDate,
                 Phone = userForRegisterDto.Phone,
                                 
                 PasswordHash = passwordHash,
@@ -45,7 +45,7 @@ namespace Project.Business.Concrete
 
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
-            var userToCheck = _userService.GetByMail(userForLoginDto.Email);
+            var userToCheck = _userService.GetByUsername(userForLoginDto.Username);
             if (userToCheck == null)
             {
                 return new ErrorDataResult<User>("Kullanıcı bulunamadı");
@@ -59,9 +59,9 @@ namespace Project.Business.Concrete
             return new SuccessDataResult<User>(userToCheck, "Başarılı giriş");
         }
 
-        public IResult UserExists(string email)
+        public IResult UserExists(string username)
         {
-            if (_userService.GetByMail(email) != null)
+            if (_userService.GetByUsername(username) != null)
             {
                 return new ErrorResult("Kullanıcı mevcut");
             }

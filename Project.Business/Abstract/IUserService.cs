@@ -13,6 +13,6 @@ namespace Project.Business.Abstract
         void delete(User entity);
         void update(User entity);
         List<Role> GetClaims(User user);
-        User GetByMail(string email);
+        User GetByUsername(string username);
     }
 }

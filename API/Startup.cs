@@ -35,17 +35,19 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            
          //   services.AddDbContext<ProjectContext>(options =>
          //options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddControllers();
-            services.AddCors(options => options.AddPolicy(ApiCorsPolicy, builder => {
-                builder.WithOrigins("http://localhost:44572").AllowAnyOrigin();
-//.AllowAnyMethod()
-//.AllowAnyHeader()
-//.AllowCredentials();
-            }));
+            services.AddCors(options =>
+            {
+                options.AddPolicy(ApiCorsPolicy,
+                builder =>
+                {
+                    builder.SetIsOriginAllowed(isOriginAllowed: _ => true).AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+                });
+            });
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -85,12 +87,13 @@ namespace API
             app.UseStaticFiles();
 
             app.UseRouting();
+           
 
             app.UseAuthentication();
 
             app.UseAuthorization();
             app.UseCors(ApiCorsPolicy);
-
+                    
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

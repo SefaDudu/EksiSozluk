@@ -48,7 +48,8 @@ namespace API.Controllers
             var Top10Main = commentService.MainComment();
             return Ok(Top10Main);
         }
-        //Engelle Giriş Yapan=USerId diğer kişide Reportlanan kişie
+        //Engelle Giriş Yapan=USerId diğer kişide Reportlanan kişiye
+        [Authorize(Roles = "User")]
         [HttpPost("BlackList")]
         public IActionResult BlackList([FromBody]  Blacklist blacklist)
         {
@@ -67,6 +68,7 @@ namespace API.Controllers
         }
 
         //konu listesi
+        [Authorize(Roles = "User")]
         [HttpGet("GetSubjectList")]
         public IActionResult GetSubjectList()
         {
@@ -74,7 +76,9 @@ namespace API.Controllers
             return Ok(getlist);
         }
 
+
         [HttpPost("AddSubject")]
+        [Authorize(Roles = "User")]
         public IActionResult AddSubject([FromBody]  string title)
         {
             Subject subject = new Subject();
@@ -88,6 +92,7 @@ namespace API.Controllers
 
         //Yorum yap
         //SubjectId ,UserId ve Comment gönderilecek
+        [Authorize(Roles = "User")]
         [HttpPost("AddComment")]
         public IActionResult AddSubject([FromBody] Comment comment)
         {
@@ -97,6 +102,7 @@ namespace API.Controllers
             return Ok(true);
         }
         //Yorum Şikayet CommentId,UserId ve text yollanacak
+        [Authorize(Roles = "User")]
         [HttpPost("ReportComment")]
         public IActionResult ReportComment([FromBody] CommentReport comment)
         {
@@ -106,6 +112,7 @@ namespace API.Controllers
             return Ok(true);
         }
         //User Şikayet girişyapan kişini Idsi ve Şikayet edilen kişinin idsi ile text yollanacak
+        [Authorize(Roles = "User")]
         [HttpPost("UserReport")]
         public IActionResult UserReport([FromBody] UserReport comment)
         {
@@ -115,7 +122,7 @@ namespace API.Controllers
             return Ok(true);
         }
         //Giriş Yapan kişi için engellenen kişilerin yorumlarının gösterilmemesi
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "User")]
         [HttpGet("GetComment")]
         public IActionResult GetComment()
         {
