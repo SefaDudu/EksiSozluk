@@ -10,12 +10,10 @@ export default class Admin extends Component {
                     <div className="adminsidebar">
                         <span><img src={"eksipanel.png"} id="logopanel" /></span>
                         <ul className="panellist">
-                            <li><a href="#">Tüm Yorumlar</a></li>
-                            <li><a href="#1">Kara Liste</a></li>
-                            <li><a href="#2">x</a></li>
-                            <li><a href="#3">x</a></li>
-                            <li><a href="#4">x</a></li>
-                            <li><a href="#5">x</a></li>
+                            <li><a href="#">Tüm Kullanıcılar</a></li>
+                            <li><a href="#1">Tüm Yorumlar</a></li>
+                            <li><a href="#2">Yasaklı Kullanıcılar</a></li>
+                            
                         </ul>
                     </div>
                 </div>
