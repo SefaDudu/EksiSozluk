@@ -1,6 +1,7 @@
 import './App.css';
 import User from './component/LoginRegister/';
 import Main from './component/Main/'
+import Profile from './component/Profile'
 import Report from './component/Report'
 import ReportUser from './component/ReportUser'
 import Admin from './component/Admin/'
@@ -15,6 +16,9 @@ function App() {
       <Route path="/report" element={<Report/>}></Route>
       <Route path="/reportuser" element={<ReportUser/>}></Route>
       <Route path="/admin" element={<Admin/>}></Route>
+
+      <Route path="/profile" element={<Profile/>}></Route>
+
     </Routes>
   )
 }
